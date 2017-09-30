@@ -44,7 +44,7 @@ public class SVMUtil {
 					}
 				});
 
-		MetricsUtil.analyzeBinaryClassMetrics(predictionAndLabels, sb, evaluationResult);
+//		MetricsUtil.analyzeBinaryClassMetrics(predictionAndLabels, sb, evaluationResult);
 		MetricsUtil.analyzeMultiClassMetrics(predictionAndLabels, sb, evaluationResult);
 
 	}

@@ -1,4 +1,4 @@
-package edu.boun.cmpe.drenaj.toolkit.model;
+package edu.boun.cmpe.drenaj.toolkit.deprecated;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +25,7 @@ import org.apache.spark.rdd.RDD;
 import org.apache.spark.sql.SQLContext;
 import org.apache.spark.sql.SparkSession;
 
+import edu.boun.cmpe.drenaj.toolkit.model.TrainingDataPaths;
 import edu.boun.cmpe.drenaj.toolkit.model.concurrency.SVMClassifierTask;
 import edu.boun.cmpe.drenaj.toolkit.model.entity.EvaluationResult;
 import edu.boun.cmpe.drenaj.toolkit.model.entity.ThresholdFinderEntity;
@@ -45,7 +46,7 @@ public class OrganizedBehaviourSVMClassifier {
 		// Load and parse the data file, converting it to a DataFrame.
 
 		JavaRDD<LabeledPoint> labeledDataRDD = jsc.textFile(
-				TrainingDataPaths.ALL_DATA_PATH,
+				TrainingDataPaths.ALL_DATA_PATH_ORGANIZED,
 				1).flatMap(new FlatMapFunction<String, LabeledPoint>() {
 					@Override
 					public Iterator<LabeledPoint> call(String line) throws Exception {

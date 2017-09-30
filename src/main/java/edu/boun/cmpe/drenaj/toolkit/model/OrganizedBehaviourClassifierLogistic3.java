@@ -46,7 +46,7 @@ public class OrganizedBehaviourClassifierLogistic3 {
 		// Load and parse the data file, converting it to a DataFrame.
 
 		JavaRDD<LabeledPoint> labeledDataRDD = jsc.textFile(
-				TrainingDataPaths.NON_HASHTAG_PCA_PATH,
+				TrainingDataPaths.PCA_NON_HASHTAG_HILLARY_TRUMPL_PATH,
 				1).flatMap(new FlatMapFunction<String, LabeledPoint>() {
 					@Override
 					public Iterator<LabeledPoint> call(String line) throws Exception {
@@ -150,7 +150,7 @@ public class OrganizedBehaviourClassifierLogistic3 {
 				});
 
 		MetricsUtil.analyzeMultiClassMetrics(predictionAndLabels1, sb, evaluationResult);
-		MetricsUtil.analyzeBinaryClassMetrics(predictionAndLabels1, sb, evaluationResult);
+//		MetricsUtil.analyzeBinaryClassMetrics(predictionAndLabels1, sb, evaluationResult);
 
 	}
 

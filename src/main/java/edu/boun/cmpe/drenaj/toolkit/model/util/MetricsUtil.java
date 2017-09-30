@@ -20,15 +20,35 @@ public class MetricsUtil {
 
 		double[] labels = metrics.labels();
 
-		double f_measure = metrics.fMeasure(1);
-		double precision = metrics.precision(1);
-		double recall = metrics.recall(1);
+		
+//		double f_measure = metrics.fMeasure(1);
+//		double precision = metrics.precision(1);
+//		double recall = metrics.recall(1);
+//		double accuracy = metrics.accuracy();
+		
+		double f_measure = metrics.fMeasure(0);
+		double precision = metrics.precision(0);
+		double recall = metrics.recall(0);
 		double accuracy = metrics.accuracy();
+		
+		f_measure += metrics.fMeasure(1);
+		precision += metrics.precision(1);
+		recall += metrics.recall(1);
 
+		f_measure += metrics.fMeasure(2);
+		precision += metrics.precision(2);
+		recall += metrics.recall(2);
+		
+		f_measure = f_measure / 3d;
+		precision = precision / 3d;
+		recall = recall / 3d;
+
+		
 		evaluationResult.addAccuracy(accuracy);
 		evaluationResult.addFMeasure(f_measure);
 		evaluationResult.addPrecision(precision);
 		evaluationResult.addRecall(recall);
+		
 
 		sb.append("Precision = " + precision + "\n");
 		sb.append("Recall = " + recall + "\n");
